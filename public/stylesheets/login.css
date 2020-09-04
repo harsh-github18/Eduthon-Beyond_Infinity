@@ -1,0 +1,63 @@
+* {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.leftimg {
+    background-image: url(/images/images1.jpg);
+    background-size: 280px 418px;
+    height: 400px;
+    width: 325px;
+}
+
+.rightform {
+    background-color: rgb(7, 97, 97);
+    height: 400px;
+    width: 325px;
+}
+
+.sty {
+    font-family: Arial, Helvetica, serif;
+    align-content: center;
+    color: white;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.selfbd {
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: rgb(8, 8, 77);
+    box-shadow: cadetblue;
+}
+
+.gradient-button {
+    margin: 10px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 15px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: darkcyan;
+    box-shadow: 0 0 20px;
+    border-radius: 10px;
+    width: 150px;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 25px;
+}
+
+    .gradient-button:hover {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        margin: 8px 10px 12px;
+    }
+
+.gradient-button-1 {
+    background-color: white;
+}
+
+    .gradient-button-1:hover {
+        background-position: right center;
+    }
