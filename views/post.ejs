@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Fruktur&display=swap" rel="stylesheet">
+  <title>Posts by Alumini</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+
+
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    
+<%- include("navbar") %>
+    <div class="container postinvidual rounded">
+
+
+<div class="individualpost">
+  <h2 id="posthead"><%=post.title%></h2>
+  
+  <p id="postdetail"> On <%=post.created%>  By <b><%= post.author.username %></b></p>
+  <img id="postimg" src="/<%=post.image%>">
+  <p id="postcontent"><%=post.postcontent %></p>
+  <% if(currentUser && post.author.id.equals(currentUser._id)){ %>
+        <a class="btn btn-primary" href="/post/<%=post._id %>/edit">Edit</a>
+		<form style="display: inline;"  action="/post/<%=post._id%>?_method=DELETE" method="POST">
+            <button class="btn btn-xs btn-danger">DELETE</button>
+        </form>        
+    <% } %>
+</div>
+
+<% var i=0%>
+<%  post.comments.forEach(function(comment){ %>
+  <% if(i == 0){%>
+    <h4 id="commenthead">Comments...</h4>
+  <% } %>
+  <div class="row individualcomment">
+    <% i++%>
+    <p class="comauthor" ><%=comment.author.username%></p>
+    <p class="comtext">
+		<%=comment.text%>
+    </p>
+	<% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+        <form style="display: inline" class="pull-right" action="/post/<%=post._id%>/<%=comment._id%>?_method=DELETE" method="POST">
+            <button class="btn btn-sm btn-danger deletecom">x</button>
+        </form>
+    <% } %>
+  </div>
+<%}) %>
+
+
+
+<form action="/post/<%=post._id%>" method="post">
+  <div class="form-group ">
+    <label>Leave a Comment</label>
+    <!-- <input class="form-control commenttab" type="text" name="commendescription"> -->
+    <div class="input-append">
+      <input name="text" id="search" type="text">
+      <button class="btn btn-primary " id="combtn" type="submit" name="buttoncom">Comment</button>
+    </div>
+  </div>
+
+</form>
+
+</div>
+<div class="footer-padding"></div>
+  <div class="footer">
+    <p>Be the Community, For the Community!</p>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+<script src="/scripts/style.js"></script>
+</body>
+</html>
