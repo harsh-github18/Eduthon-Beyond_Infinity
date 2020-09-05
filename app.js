@@ -9,10 +9,19 @@ var express = require("express"),
     Post = require("./models/post"),
     User = require("./models/user"),
     Comment = require("./models/comment"),
+    Circle = require("./models/circle"),
+    Message = require("./models/message"),
     middleware = require("./middleware"),
     multer = require("multer"),
     path = require('path'),
     _ = require("lodash");
+    http = require('http').createServer(app),
+    io = require('socket.io')(http),
+    fs = require('fs'),
+    static = require('node-static');
+    app.use(require('body-parser').urlencoded({extended: true}));
+    app.use(bodyParser.json());
+
 
 var indexRoutes = require("./routes/index");
 
@@ -387,6 +396,96 @@ function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 }
 
-app.listen(3000, process.env.IP, function () {
+// SOCKET 
+
+var file = new static.Server(path.join(__dirname, '..', 'public'));
+
+function handler(req, res) {
+  file.serve(req, res);
+}
+
+users = []
+
+/*var circle1= new Circle({
+    title: "Web Development"
+}) ; 
+Circle.create(circle1);*/
+
+app.get("/chat", function (req, res) {
+
+    Circle.find({title: "Web Development"}).populate("messages").exec(function (err, circle) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            console.log("yes")
+            res.render("chat", { circle:circle});  
+        }
+    });
+});
+
+app.post("/add_message",function(req,res){
+    Circle.find({title: "Web Development"},function (err, circle) {
+        if (err) {
+            console.log(err);
+        } else {
+
+            var newmessage = new Message({  
+                text: req.body.text
+            });
+            Message.create(newmessage, function (err,message) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log(req.user.name);
+                    message.author.id = req.user._id;
+                    message.author.username = req.user.name;
+                    message.save();
+                    circle[0].messages.push(message);
+                    circle[0].save();
+                    res.redirect('/chat');
+                }
+            })
+        }
+    });
+});
+
+//Socket Connections
+
+app.get('/chat', function(req, res){
+    res.render("chat");
+});
+  
+io.of('/chat').on('connection', function(socket){
+console.log('a user connected');
+
+socket.on('chat message', function(msg){
+    //console.log('message: ' + msg);
+    socket.emit('new message', {'msg': msg.message, 'user': msg.user});
+});
+
+socket.on('disconnect', function(data){
+    updateUsernames();
+});
+
+socket.on('newuser', function(data){
+    socket.username = data.username;
+    users.push(data.username);
+    updateUsernames();
+});
+
+function updateUsernames(){
+    socket.emit('get users',users);
+}
+
+socket.on('user image', function(msg){
+    //console.log(msg);
+    socket.emit('user image', msg);
+})
+
+
+});
+
+http.listen(3000, process.env.IP, function () {
     console.log("server started ");
 });
