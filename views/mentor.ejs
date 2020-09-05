@@ -91,12 +91,13 @@
 											<p class="card-text college"><%=user.college%></p>
 										<% } %>
 										<hr class="short">
-										<p>
-											<% user.skills.forEach(skill=> { %>
-												<%= skill.name %>, 
-											<% }) %>
-												
-										</p>
+										<% var allSkills = ""; %>
+										<% user.skills.forEach(skill=> { %>
+											<% allSkills+=skill.name+", " %> 
+										<% }) %>
+
+										<p class="card-text skill"><%= allSkills %></p>	
+										
 										<p class="card-text gender"><%=user.gender%></p>
 										<p class="card-text mentor"><%=user.isMentor%></p>
 										<a href="/profile/<%=user.username%>" class="btn btn-profile">View Profile</a>
