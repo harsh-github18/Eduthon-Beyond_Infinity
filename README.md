@@ -13,4 +13,6 @@ LearnTEZZ renders the following features which make e-learning accessible and st
 3. **Get to know about Upcoming Events & Opportunities** - Stay connected and updated with lucrative opportunities like scholarships, insightful webinars, etc. 
 4. **User Privacy**- Keep your data secured with us. 
 
+![Screenshot of Home Page](https://github.com/vermakhushboo/Eduthon-Beyond_Infinity/blob/master/public/images/Screenshot%20(34).png)
+
 
