@@ -118,15 +118,27 @@ body {
 
 #item6 {
     flex-grow: 1.5;
-    /* background-image: url("/images/goamap.png"); */
+    background-image: url("/images/mentor.png");
     box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.24);
 }
 
 #item7 {
-    background-image: url("/images/wallOfFame.jpg");
     flex-grow: 1.5;
     box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.24);
     background-size: cover;
+}
+
+.item8{
+    height: 225px;
+}
+
+.item9{
+    display: inline-block;
+    width: 290px;
+    height: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #F8F9FA;
 }
 
 #blank {
