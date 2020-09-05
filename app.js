@@ -86,7 +86,9 @@ app.use("/", indexRoutes);
 
 //MENTOR PAGE
 app.get("/mentor", function (req, res) {
-    res.render("mentor");
+    User.find({}, function (err, user) {
+        res.render("mentor", { user: user });
+    });
 });
 
 //LEARNING CIRCLES
