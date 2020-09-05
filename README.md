@@ -1,5 +1,8 @@
 # Eduthon-Beyond_Infinity
 
+## Project PPT
+https://github.com/himanipopli/Eduthon-Beyond_Infinity/blob/master/PPT%20Eduthon-Beyond_Infinity.pdf
+
 ## Project Name
 LearnTEZZ- Be the Community, for the Community
 
@@ -13,11 +16,11 @@ LearnTEZZ renders the following features which make e-learning accessible and st
 3. **Get to know about Upcoming Events & Opportunities** - Stay connected and updated with lucrative opportunities like scholarships, insightful webinars, etc. 
 4. **User Privacy**- Keep your data secured with us. 
 
-### Technology Used
+## Technology Used
 Front-end: HTML, CSS, Javascript
 Backend: NodeJs, Express, MongoDB
 
-### Instructions for Setup (Windows User)
+## Instructions for Setup (Windows User)
 1. Install Node on your system from here https://nodejs.org/en/download/
 2. Clone this github repo: https://github.com/himanipopli/Eduthon-Beyond_Infinity.git
 3. Open the terminal and navigate to the "Eduthon-Beyond_Infinity" folder.
