@@ -21,8 +21,8 @@ function filter() {
         var f_skill = document.getElementById("f-skill").value;
         var f_mentor = document.getElementById("f-mentor").value;
 
-        console.log(skill);
-        console.log(f_skill);
+        //console.log(skill.length);
+        //console.log(f_skill.length);
  
         if (f_college != "none" && f_college != college) {
             cards[i].style.display = "none";
@@ -35,7 +35,8 @@ function filter() {
         }
         else if (f_skill != "none") {
             var j = 0, flag=0, len = f_skill.length;
-            while (j>=0 && j < skill.length - len) {
+            while (j >= 0 && j < skill.length - len) {
+                //console.log(skill.substring(j, j + len));
                 if (skill.substring(j, j + len) == f_skill) {
                     flag = 1;
                     break;
