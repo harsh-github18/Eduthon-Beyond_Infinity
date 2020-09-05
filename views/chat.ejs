@@ -14,7 +14,6 @@
 <body>
   <div id="body">
     <p id="username" hidden><%=currentUser.name%></p>
-    <p id="profile" hidden><%=currentUser.image%></p>
     <div id="head">
       <div class="content">
         <div id="sidenav">
@@ -33,7 +32,7 @@
           <div id="chat">
             <% var i = 1 %>
             <%  circle[0].messages.forEach(function(message){ %>
-            <div id="block"><div id="image"><img src="/<%=message.author.image%>" alt=""></div><div id="block2"><div id="name"><strong>><%=message.author.username%></strong><span style="font-size: 14px; padding: 0px 10px"><%=message.created%></span></div><div id="message-area"><%=message.text%></div></div></div><br/>
+            <div id="block"><div id="image"><img src="https://img.icons8.com/material-sharp/46/000000/user-male-circle.png" alt=""></div><div id="block2"><div id="name"><strong>><%=message.author.username%></strong><span style="font-size: 14px; padding: 0px 10px"><%=message.created%></span></div><div id="message-area"><%=message.text%></div></div></div><br/>
             <% i++%>
             <%}) %>
           </div>
@@ -67,7 +66,6 @@
             var socket = io('/chat');
             var date = new Date();
             var user = document.getElementById("username").textContent;
-            var photo = document.getElementById("profile").textContent;
             console.log(user);
             $('#date').append(date);
             $('#head').show();
@@ -79,7 +77,7 @@
 
            socket.on('new message', function(data){
                $('#chat').append(
-                 '<div id="block"><div id="image"><img src="'+photo+'"></div><div id="block2"><div><strong>'+user+'</strong><span style="font-size: 14px; padding: 0px 10px">'+date.getHours()+':'+ date.getMinutes()+'</span></div><div id="message-area">'+data.msg+'</div></div></div><br/>'
+                 '<div id="block"><div id="image"><img src="https://img.icons8.com/material-sharp/46/000000/user-male-circle.png"></div><div id="block2"><div><strong>'+user+'</strong><span style="font-size: 14px; padding: 0px 10px">'+date.getHours()+':'+ date.getMinutes()+'</span></div><div id="message-area">'+data.msg+'</div></div></div><br/>'
                  )
             });
             
