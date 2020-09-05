@@ -276,7 +276,6 @@ app.get("/profile/:username", middleware.isLoggedIn, function (req, res) {
 
             });
         }
-
     });
 });
 
@@ -374,7 +373,7 @@ app.put("/profile/:id", middleware.checkUserProfile, function (req, res) {
                 pusername: req.body.pusername == "on" ? "false" : "true",
                 pphoneno: req.body.pphoneno == "on" ? "false" : "true",
                 pgender: req.body.pgender == "on" ? "false" : "true",
-                location: req.body.location == "on" ? "false" : "true",
+                plocation: req.body.plocation == "on" ? "false" : "true",
 
             };
             User.findByIdAndUpdate(req.params.id, { $set: newData }, function (err, updatedData) {
