@@ -1,5 +1,6 @@
 var Post = require("../models/post");
 var Comment = require("../models/comment");
+var User = require("../models/user");
 
 module.exports = {
     isLoggedIn: function (req, res, next) {
@@ -36,6 +37,22 @@ module.exports = {
                     next();
                 } else {
                     res.redirect("/post/" + req.params.postid);
+                }
+            });
+        } else {
+            res.redirect("/login");
+        }
+    },
+    checkUserProfile: function (req, res, next) {
+        if (req.isAuthenticated()) {
+            User.findById(req.params.id, function (err, user) {
+                if (err) {
+                    res.redirect("/");
+                }
+                if ((user.username) == (req.user.username)) {
+                    next();
+                } else {
+                    res.redirect("/profile/" + user.username);
                 }
             });
         } else {

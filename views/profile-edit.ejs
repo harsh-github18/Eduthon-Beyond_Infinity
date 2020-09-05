@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Profile</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="/stylesheets/profile.css">
+</head>
+<body class="bg-image">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    
+<%- include("navbar") %>
+
+<div class="container bg-text" style="padding:0px 50px; margin:100px 0px;">
+	<div class="row">
+        <div class="container-edit col-9" style="margin: 3px auto; background:white;">
+            <h1 style="text-align: center; color:rgb(1, 105, 105);" class="title">Edit Profile</h1>
+            <div style="margin: 25px auto;">
+                <form action="/profile/<%=user._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Email</label>
+						<div class="row">
+							<div class="col-10">
+								<input type="text" class="form-control" name="username" value="<%= user.username %>" disabled>
+							</div>
+							<div class="col-2">
+								<input type="checkbox" name="pusername" checked>
+							</div>
+						</div>
+                    </div>
+					<div class="form-group">
+                        <label>Name</label>
+						<div class="row">
+							<div class="col-10">
+								<input type="text" class="form-control" name="name" value="<%= user.name %>" required>
+							</div>
+							<div class="col-2">
+							</div>
+						</div>
+                    </div>
+					<div class="form-group">
+						<label>Gender</label>
+                        <div class="row">
+							<div class="col-10">
+								<select name="gender" class="form-control" value="<%= user.gender %>">
+								  <option value="" disabled selected>Gender</option>
+								  <option value="Female">Female</option>
+								  <option value="Male">Male</option>
+								  <option value="Other">Other</option>
+								</select>
+							</div>
+							<div class="col-2">
+								<input type="checkbox" name="pgender" checked>
+							</div>
+						</div>
+                    </div>
+					<div class="form-group">
+                        <label>Phone No.</label>
+						<div class="row">
+							<div class="col-10">
+								<input type="text" class="form-control" name="phoneno" value="<%= user.phoneno %>">
+							</div>
+							<div class="col-2">
+								<input type="checkbox" name="pphoneno" checked>
+							</div>
+						</div>
+                    </div>
+					<script type= "text/javascript" src = "/scripts/countries.js"></script>
+					<div class="form-group">
+                        <label>Location</label>
+						<div class="row">
+							<div class="col-10">
+								<select class="custom-select" id="country" name ="location" class="form-control" value="<%= user.location %>">
+									<option value="" disabled selected>Current Location</option>
+								</select> 
+							</div>
+							<div class="col-2">
+								<input type="checkbox" name="plocation" checked>
+							</div>
+						</div>
+                    </div>
+                    <script language="javascript">
+                        populateCountries("country", "state"); // first parameter is id of country drop-down and second parameter is id of state drop-down
+                        populateCountries("country2");
+                        populateCountries("country2");
+                    </script>
+					<div class="form-group">
+                        <label>College/School</label>
+						<div class="row">
+							<div class="col-10">
+								<select class="custom-select" name ="college" class="form-control" value="<%=user.college%>" >
+									<option value="" disabled selected>College/School Name</option>
+									<option value="IGDTUW">IGDTUW</option>
+									<option value="DTU">DTU</option>
+									<option value="MAIT">MAIT</option>
+									<option value="IIT-Lucknow">IIT-Lucknow</option>
+									<option value="Delhi Public School">Delhi Public School</option>
+								</select> 
+							</div>
+							<div class="col-2">
+							</div>
+						</div>
+                    </div>
+					<div class="form-group">
+                        <label>Skills</label>
+						<div class="row">
+							<div class="col-10">
+								<input type="checkbox" id="webd" name="webd" value="Web Development">
+								<label for="webd"> Web Development</label>
+								<input type="checkbox" id="android" name="android" value="Android">
+								<label for="android"> Android</label>
+								<input type="checkbox" id="ios" name="ios" value="IOS">
+								<label for="ios"> IOS</label>
+								<input type="checkbox" id="ar" name="ar" value="AR/VR">
+								<label for="ar"> AR/VR</label>
+								<input type="checkbox" id="ml" name="ml" value="Machine Learning">
+								<label for="ml"> Machine Learning</label>
+								<input type="checkbox" id="ai" name="ai" value="Artificial Intelligence">
+								<label for="ai"> Artificial Intelligence</label>
+								<input type="checkbox" id="ui" name="ui" value="UI/UX">
+								<label for="ui"> UI/UX</label>
+								<input type="checkbox" id="cp" name="cp" value="Competitive Programming">
+								<label for="cp"> Competitive Programming</label>
+							</div>
+						</div>
+                    </div>
+					<div class="form-group">
+                        <label>Willing to Mentor?</label>
+						<div class="row">
+							<div class="col-10">
+								<select name="mentor" class="form-control" required>
+								  <option value="Yes" disabled selected>Yes</option>
+								  <option value="No">No<option>
+								</select>
+							</div>
+							<div class="col-2">
+							</div>
+						</div>
+                    </div>
+					<div class="form-group">
+						<label>Currently Pursuing</label>
+						<div class="row">
+							<div class="col-10">
+								<select name="currentStatus" class="form-control" id="status">
+									<option value="" disabled selected>Currently Pursuing</option>
+									<option value="company">Job/Company</option>
+									<option value="startup">StartUp</option>
+									<option value="study">Further Studies</option>
+									<option value="other">Other</option>
+								</select>
+							</div>
+							<div class="col-2">
+							</div>
+						</div>
+                    </div>
+                      
+                      <div class="form-row" id="job">
+                        <div class="form-group col-10">
+                              <input type="text" class="form-control" name="companyname" value="<%= user.companyname %>" placeholder="Company Name">
+                        </div>
+                        <div class="form-group col-10">
+                              <input type="text" class="form-control" name="jobprofile" value="<%= user.jobprofile %>" placeholder="Job Profile">
+                        </div>
+                        <div class="form-group col-10">
+                              <input type="text" class="form-control" name="companyloc" value="<%= user.companyloc %>" placeholder="Company Location">
+                        </div> 
+                      </div>
+                      <div class="form-row" id="studies">
+                        <div class="form-group col-10">
+                          <input type="text" class="form-control" name="collegename" value="<%= user.collegename %>" placeholder="College Name">
+                        </div>
+                        <div class="form-group col-10">
+                          <input type="text" class="form-control" name="course" value="<%= user.course %>" placeholder="Course">
+                        </div>
+                        <div class="form-group col-10">
+                              <input type="text" class="form-control" name="year" value="<%= user.year %>" placeholder="Year">
+                        </div> 
+                      </div>
+                      <div class="form-row" id="startup">
+                        <div class="form-group col-10">
+                          <input type="text" class="form-control" name="startupname" value="<%= user.startupname %>" placeholder="StartUp Name">
+                        </div>
+                        <div class="form-group col-10">
+                          <input type="text" class="form-control" name="website" value="<%= user.website %>" placeholder="Website Link">
+                        </div>
+                      </div>
+					  <div class="form-row" id="other">
+                        <div class="form-group col-10">
+                          <input type="text" class="form-control" name="otherdetail" value="<%= user.otherdetail %>" placeholder="Please Specify">
+                        </div>
+                      </div>
+					<div class="form-group">
+                        <label>Linked Profile</label>
+						<div class="row">
+							<div class="col-10">
+								<input type="text" class="form-control" name="linkedin" value="<%= user.linkedin %>" >
+							</div>
+							<div class="col-2">
+							</div>
+						</div>
+                    </div>
+					<div class="form-group">
+                        <label>Short Bio</label>
+						<div class="row">
+							<div class="col-10">
+								<input type="text" class="form-control" name="bio" value="<%= user.bio %>" >
+							</div>
+							<div class="col-2">
+							</div>
+						</div>
+                    </div>
+					<div class="form-group">
+                        <label>Profile Photo</label>
+						<div class="row">
+							<div class="col-10">
+								<input type="file" class="form-control" name="image" value="<%= user.image %>" >
+							</div>
+							<div class="col-2">
+							</div>
+						</div>
+                    </div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-10">
+								<button class="btn save-btn">Save Changes</button>
+							</div>
+							<div class="col-2">
+							</div>
+						</div>
+                        
+                    </div>
+                 </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="https://use.fontawesome.com/5331faace7.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="/scripts/form.js"></script>
+</body>
+</html>

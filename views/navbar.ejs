@@ -36,7 +36,7 @@
           </li>
           <% } else { %>
           <li class="nav-item">
-            <a href="/profile" class="nav-link">
+            <a href="/profile/<%=currentUser.username%>" class="nav-link">
                 <img src="/images/register.png" height="20" alt=""> <%=currentUser.name%>
             </a>
           </li>

@@ -251,9 +251,135 @@ app.delete("/post/:post_id/:id", middleware.checkUserComment, function (req, res
 //     PROFILE ROUTES
 //=============================
 
-app.get("/profile", function (req, res) {
-    res.render("profile");
+app.get("/profile/:username", middleware.isLoggedIn, function (req, res) {
+    User.find({ username: req.params.username }, function (err, founduser) {
+        if (err) {
+            console.log(err);
+        } else {
+            Post.find({}, function (err, posts) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    res.render("profile", { user: founduser[0], posts: posts });
+                }
+
+            });
+        }
+
+    });
 });
+
+app.get("/profile/:id/edit", middleware.checkUserProfile, function (req, res) {
+    User.findById(req.params.id, function (err, user) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("profile-edit", { user: user });
+        }
+    });
+});
+
+
+app.put("/profile/:id", middleware.checkUserProfile, function (req, res) {
+    upload(req, res, (error) => {
+        if (error) {
+            console.log(error);
+            res.redirect('/');
+        } else {
+            var fullPath = "images/default-user.jpg";
+            if (req.file != undefined) {
+                fullPath = "images/" + req.file.filename;
+            }
+            var skills = [];
+            if (req.body.webd) {
+                var skill = {
+                    name: req.body.webd
+                };
+                skills.push(skill);
+            }
+            if (req.body.android) {
+                var skill = {
+                    name: req.body.android
+                };
+                skills.push(skill);
+            }
+            if (req.body.ios) {
+                var skill = {
+                    name: req.body.ios
+                };
+                skills.push(skill);
+            }
+            if (req.body.ar) {
+                var skill = {
+                    name: req.body.ar
+                };
+                skills.push(skill);
+            }
+            if (req.body.ml) {
+                var skill = {
+                    name: req.body.ml
+                };
+                skills.push(skill);
+            }
+            if (req.body.ai) {
+                var skill = {
+                    name: req.body.ai
+                };
+                skills.push(skill);
+            }
+            if (req.body.ui) {
+                var skill = {
+                    name: req.body.ui
+                };
+                skills.push(skill);
+            }
+            if (req.body.cp) {
+                var skill = {
+                    name: req.body.cp
+                };
+                skills.push(skill);
+            }
+            var newData = {
+                name: req.body.name,
+                college: req.body.college,
+                skills: skills,
+                isMentor: req.body.mentor,
+                gender: req.body.gender,
+                currentStatus: req.body.currentStatus,
+                phoneno: req.body.phoneno,
+                location: req.body.location,
+                companyname: req.body.companyname,
+                jobprofile: req.body.jobprofile,
+                companyloc: req.body.companyloc,
+                collegename: req.body.collegename,
+                course: req.body.course,
+                year: req.body.year,
+                startupname: req.body.startupname,
+                website: req.body.website,
+                otherdetail: req.body.otherdetail,
+                linkedin: req.body.linkedin,
+                image: fullPath,
+                bio: req.body.bio,
+                pusername: req.body.pusername == "on" ? "false" : "true",
+                pphoneno: req.body.pphoneno == "on" ? "false" : "true",
+                pgender: req.body.pgender == "on" ? "false" : "true",
+                location: req.body.location == "on" ? "false" : "true",
+
+            };
+            User.findByIdAndUpdate(req.params.id, { $set: newData }, function (err, updatedData) {
+                if (err) {
+                    console.log(err);
+                    res.redirect("back");
+                } else {
+                    console.log("Done");
+                    res.redirect("/profile/" + updatedData.username);
+                }
+            });
+        }
+    });
+
+});
+
 
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");

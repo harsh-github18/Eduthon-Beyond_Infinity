@@ -7,8 +7,14 @@ var UserSchema = new mongoose.Schema({
     pusername: Boolean,
     password: String,
     name: String,
-    image: { type: String, default: "images/default.jpeg" },
+    image: { type: String, default: "images/default-user.jpeg" },
     bio: String,
+    skills: [
+        {
+            name: String
+        }
+    ],
+    isMentor: String,
     college: String,
     gender: String,
     pgender: Boolean,
