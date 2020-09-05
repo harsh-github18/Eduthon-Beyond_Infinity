@@ -78,7 +78,7 @@
 											</div>
 										</div>
 										<% } %>
-										<% if(user.plocation!=true && user.location){ %>
+										<% if(user.plocation!=true && user.location && user.location != "-1"){ %>
 										<div class="row">
 											<div class="col-md-5">
 												<label>Location</label>
@@ -115,7 +115,7 @@
 											<div class="col-md-7">
 												<p>
 													<% user.skills.forEach(skill=> { %>
-														<span><%= skill.name %> </span>    
+														<span><%= skill.name %>   </span>    
 													<% }) %>
 												</p>
 											</div>
