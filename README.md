@@ -13,6 +13,14 @@ LearnTEZZ renders the following features which make e-learning accessible and st
 3. **Get to know about Upcoming Events & Opportunities** - Stay connected and updated with lucrative opportunities like scholarships, insightful webinars, etc. 
 4. **User Privacy**- Keep your data secured with us. 
 
+### Instructions for Setup (Windows User)
+1. To install Node on your system from here https://nodejs.org/en/download/
+2. Clone this github repo: https://github.com/himanipopli/Eduthon-Beyond_Infinity.git
+3. Open the terminal and navigate to the "Eduthon-Beyond_Infinity" folder.
+4. Run "node app.js" command
+5. Open Google Chrome browser and visit http://localhost:3000 
+
 ![Screenshot of Home Page](https://github.com/vermakhushboo/Eduthon-Beyond_Infinity/blob/master/public/images/Screenshot%20(34).png)
+
 
 
