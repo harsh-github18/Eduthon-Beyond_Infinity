@@ -68,7 +68,7 @@
 											</div>
 										</div>
 										<% } %>
-										<% if(user.pphoneno!=true){ %>
+										<% if(user.pphoneno!=true && user.phoneno){ %>
 										<div class="row">
 											<div class="col-md-5">
 												<label>Phone</label>
@@ -78,7 +78,7 @@
 											</div>
 										</div>
 										<% } %>
-										<% if(user.plocation!=true){ %>
+										<% if(user.plocation!=true && user.location){ %>
 										<div class="row">
 											<div class="col-md-5">
 												<label>Location</label>
@@ -88,7 +88,7 @@
 											</div>
 										</div>
 										<% } %>
-										<% if(user.pgender!=true){ %>
+										<% if(user.pgender!=true && user.gender){ %>
 										<div class="row">
 											<div class="col-md-5">
 												<label>Gender</label>
@@ -98,6 +98,7 @@
 											</div>
 										</div>
 										<% } %>
+										<% if(user.college){ %>
 										<div class="row">
 											<div class="col-md-5">
 												<label>College/School</label>
@@ -106,6 +107,7 @@
 												<p><%=user.college%></p>
 											</div>
 										</div>
+										<% } %>
 										<div class="row">
 											<div class="col-md-5">
 												<label>Skills</label>
@@ -113,9 +115,8 @@
 											<div class="col-md-7">
 												<p>
 													<% user.skills.forEach(skill=> { %>
-														<span><%= skill.name %> </span>, 
+														<span><%= skill.name %> </span>    
 													<% }) %>
-												
 												</p>
 											</div>
 										</div>

@@ -77,7 +77,7 @@
 										<div class="title">
 											<h5><%=user.name%></h5>
 											<% if(user.bio){ %>
-												<h6><%=user.bio.substring(0,45)%></h6>
+												<h6><%=user.bio.substring(0,45)%> ...</h6>
 											<% } %>
 										</div>
 									  </div>
@@ -93,7 +93,7 @@
 										<hr class="short">
 										<% var allSkills = ""; %>
 										<% user.skills.forEach(skill=> { %>
-											<% allSkills+=skill.name+", " %> 
+											<% allSkills+=skill.name+"   " %> 
 										<% }) %>
 
 										<p class="card-text skill"><%= allSkills %></p>	
