@@ -1,18 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>POSTS/EVENTS</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
-<body style="margin-top: 100px;">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Fruktur&display=swap" rel="stylesheet">
+  <title>Posts</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+
+
+
+
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    
 	<%- include("navbar") %>
-	<h1>LIST ALL POSTS/EVENTS</h1>
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+    <div class="container">
+
+<!-- <img id="carouselimg" src="/images/img2.jpg"> -->
+
+
+	<div class="container" id="events_posts">
+		<ul class="nav nav-tabs" id="myTab" role="tablist">
+			<li class="nav-item tabevent">
+			<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Events</a>
+			</li>
+			<li class="nav-item tabevent">
+			<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Posts</a>
+			</li>
+		</ul>
+		<div class="tab-content" id="myTabContent">
+			<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+				<% var i = 0 %>
+				<% posts.forEach(function(post){ %>
+					<%if(post.type === 'event'){%>
+						<% if(i == 0 ){ %>
+							<!-- <div>
+							<p class="subhead">Events</p>
+							</div> -->
+							<%i++;%>
+						<% } %>
+						<li class="postitem1">
+						<div class="container compose_post">
+							<h5 class="authortext"> <%= post.author.username %></h5>
+							<p id="posthead"><%=post.created%></p>
+						</div>
+						
+						<p id="posttitle"><%=post.title%></p>
+						<p>
+							<div id="newpost">
+							<div class="container imgAndDescription">
+							<div id="postimage1">
+								<img id="img1" src="<%=post.image%>">
+							</div>
+							<div class="posttext">
+								<%=post.postcontent.substring(0, 200) + " .."%>
+							</div>
+							</div>
+							<button class="btn btn-outline-info float-right">
+								<a href="/post/<%=post._id%>" id="readtext">Continue Reading</a>
+							</button>
+							
+							<%i++%>
+							</div>
+						</p>
+						</li>
+					<% } %>
+				<% }); %>
+	
+	
+				<% i = 0%>
+	
+			</div>
+			<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+				<%  posts.forEach(function(post){ %>
+					<%if(post.type === 'post'){%>
+						<% if(i == 0 ){ %>
+							<!-- <div>
+							<p class="subhead">Posts</p>
+							</div> -->
+						<% } %>
+						<li class="postitem1">
+							<div class="container compose_post">
+								<h5 class="authortext "> <%= post.author.username %></h5>
+								<p id="posthead"><%=post.created%></p>
+							</div>
+						<p id="posttitle"><%=post.title%></p>
+						<p>
+							<div id="newpost">
+							<div class="container imgAndDescription">
+							<div id="postimage1">
+								<img id="img1" src="<%=post.image%>">
+							</div>
+							<div class="posttext">
+								<%=post.postcontent.substring(0, 200) + " .."%>
+							</div>
+							</div>
+							<button class="btn btn-outline-info float-right">
+								<a href="/post/<%=post._id%>" id="readtext">Continue Reading</a>
+							</button>					
+							
+							<%i++%>
+							</div>
+						</p>
+						</li>
+					
+					<% } %>
+					
+					<% }) %>
+			</div>
+	</div>
+
+	
+	</div>
+
+</div>
+<div class="footer-padding"></div>
+  <div class="footer">
+    <p>End of the feed!</p>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+<script src="/scripts/style.js"></script>
 </body>
 </html>

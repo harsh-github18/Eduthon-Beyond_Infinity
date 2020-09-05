@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Fruktur&display=swap" rel="stylesheet">
+  <title>Edit Post/Event</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+
+
+
+
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    
+	<%- include("navbar") %>
+
+    <div class="container" style="margin-top:130px;">
+
+  <div id="composediv">
+  <h3 class="heading">Edit Post/Event</h3>
+  <form action="/post/<%=post._id%>?_method=PUT" method="POST" enctype="multipart/form-data" >
+    <div class="form-group">
+      <div class="container compose_post">
+        <div id="flex1">
+          <label class="labelclass">Title</label >
+            <input class="form-control inpBox" type="text" name="postTitle" value="<%=post.title%>" placeholder="What do you want to share today?">    
+        </div>
+        <div id="flex2">
+          <label class="labelclass">Type</label >
+            <div class="input-group mb-3">
+              <select class="custom-select" id="inputGroupSelect01" name="type" required>
+                <option value="event" selected>Type</option>
+                <option name="Eventtype" value="event">Event</option>
+                <option name="Posttype" value="post">Post</option>
+              </select>
+            </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <label class="labelclass">Post</label>
+        <textarea class="form-control" name="postBody" rows="4" cols="30" placeholder="Ask a question, create a post or event!"><%=post.postcontent%></textarea>
+      
+        <div class="form-group">
+            <input class="form-control inpBox" type="file" name="image" value="<%=post.image%>" placeholder="image">
+        </div>
+        <button class="btn btn-dark btns"  type="submit" name="button">Publish</button>
+      </div>     
+      
+      
+  </div>
+  </form>
+</div>
+      
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
