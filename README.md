@@ -13,6 +13,10 @@ LearnTEZZ renders the following features which make e-learning accessible and st
 3. **Get to know about Upcoming Events & Opportunities** - Stay connected and updated with lucrative opportunities like scholarships, insightful webinars, etc. 
 4. **User Privacy**- Keep your data secured with us. 
 
+### Technology Used
+Front-end: HTML, CSS, Javascript
+Backend: NodeJs, Express, MongoDB
+
 ### Instructions for Setup (Windows User)
 1. Install Node on your system from here https://nodejs.org/en/download/
 2. Clone this github repo: https://github.com/himanipopli/Eduthon-Beyond_Infinity.git
