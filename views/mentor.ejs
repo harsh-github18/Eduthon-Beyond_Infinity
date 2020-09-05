@@ -1,18 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MENTORS</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<title>	Find Mentor</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="/stylesheets/mentor.css">
 </head>
-<body style="margin-top: 100px;">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-	<%- include("navbar") %>
-	<h1>FIND MENTORS</h1>
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<body class="bg-image">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    
+<%- include("navbar") %>
+
+<div class="container bg-text" style="padding:0px 50px; margin:100px 0px;">
+	<div class="row">
+		<div class="col-3">
+			<h1>Filters</h1>
+			<hr>
+			<div class="filter">
+			    <strong>College/School: </strong> 
+				<select name="college" id="f-college" class="form-control">
+				    <option value="none">Select</option>
+					<option value="IIIT-Lucknow">IIIT-Lucknow</option>
+					<option value="IGDTUW">IGDTUW</option>
+					<option value="DTU">DTU</option>
+					<option value="MAIT">MAIT</option>
+					<option value="Delhi Public School">Delhi Public School</option>
+				</select>
+			</div>
+			<div class="filter">
+			    <strong>Skills: </strong> 
+				<select name="skill" id="f-skill" class="form-control">
+				  <option value="none"> Select Skill </option>
+				  <option value="Web Development">Web Development</option>
+				  <option value="Android">Android</option>
+				  <option value="IOS">IOS</option>
+				  <option value="Machine Learning">Machine Learning</option>
+				  <option value="Artificial Intelligence">Artificial Intelligence</option>
+				  <option value="AR/VR">AR/VR</option>
+				  <option value="UI/UX">UI/UX</option>
+				  <option value="Competitive Programming">Competitive Programming</option>
+				</select>
+			</div>
+			<div class="filter">
+			    <strong>Willing to Mentor: </strong> 
+			    <select name="mentor" id="f-mentor" class="form-control">
+				  <option value="none"> Choose </option>
+				  <option value="Yes">Yes</option>
+			    </select>
+			</div>
+			<div class="filter">
+			    <strong>Gender: </strong> 
+				<select name="gender" id="f-gender" class="form-control">
+				  <option value="none" selected> Gender </option>
+				  <option value="Female">Female</option>
+				  <option value="Male">Male</option>
+				</select>
+			</div>
+			<div class="apply">
+				<a href="#" onclick="filter(); return false;" class="btn" id="myButton"> Apply Filter </a> 
+			</div>
+		</div>
+		<div class="col-9" >
+			<div class="container">
+				<div class="row" id="div">
+				    <% user.forEach(function(user){ %>
+						<div class="col-sm-4 card-user">
+							<div class="card card-flip">
+								<div class="card-front">
+									<div class="card mb-3">
+									  <div class="card-img-top"></div>
+									  <div class="card-body body-front">
+										<div class="avatar"><img src="<%=user.image%>" class="rounded-circle img-user" alt="Sample avatar image.">
+										</div>
+										<div class="title">
+											<h5><%=user.name%></h5>
+											<% if(user.bio){ %>
+												<h6><%=user.bio.substring(0,45)%></h6>
+											<% } %>
+										</div>
+									  </div>
+									</div>
+								</div>
+								<div class="card-back">
+									<div class="card-body body-back">
+										<h4 class="card-title name"><%=user.name%> <a href="<%=user.linkedin%>"><img src="/images/linkedin.png" style="height:20px; width:20px"></a></h4>
+										<hr>
+										<% if(user.college){ %>
+											<p class="card-text college"><%=user.college%></p>
+										<% } %>
+										<hr class="short">
+										<p>
+											<% user.skills.forEach(skill=> { %>
+												<%= skill.name %>, 
+											<% }) %>
+												
+										</p>
+										<p class="card-text gender"><%=user.gender%></p>
+										<p class="card-text mentor"><%=user.isMentor%></p>
+										<a href="/profile/<%=user.username%>" class="btn btn-profile">View Profile</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					<% }) %> 
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://use.fontawesome.com/5331faace7.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="/scripts/filter.js"></script>
 </body>
 </html>

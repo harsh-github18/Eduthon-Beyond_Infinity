@@ -1,0 +1,182 @@
+.container {
+    max-width: 100%;
+}
+
+* {
+    font-family: 'Roboto', sans-serif !important;
+}
+/*
+flip card
+*/
+.card-flip > div {
+    backface-visibility: hidden;
+    transition: transform 600ms;
+    transition-timing-function: linear;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+}
+
+.card-front {
+    transform: rotateY(0deg);
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    position: absolute;
+    top: 0;
+    /*background-image: url('https://images.assetsdelivery.com/compings_v2/wklzzz/wklzzz1503/wklzzz150300032.jpg');*/
+    background-image: radial-gradient(circle, #e8f4ee, #e7f1ee, #e6efed, #e6eceb, #e6e9e9);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-flip:hover .card-front {
+    transform: rotateY(-180deg);
+}
+
+.card-flip:hover .card-back {
+    transform: rotateY(0deg);
+}
+
+.card {
+    height: 260px;
+    width: inherit;
+    margin-bottom: 20px;
+}
+
+.card-img-top {
+    height: 45%;
+    width: inherit;
+    background-image: linear-gradient(to bottom right, rgb(1, 105, 105), rgb(7, 163, 163));
+}
+
+.body-front {
+    position: relative;
+    padding: 0px;
+}
+
+.avatar {
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    top: -85px;
+    left: 60px;
+}
+
+.title {
+    position: relative;
+    top: 75px;
+    text-align: center;
+    text-shadow: 1px 1px 3px #696969, 1px 1px 10px #808080, 1px 1px 13px #A9A9A9;
+}
+
+    .title h4 i {
+        color: blue;
+    }
+
+h1 {
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Bradley Hand', 'cursive';
+    font-size: 40px;
+    color: rgb(1, 105, 105);
+    text-shadow: 4px 4px rgba(0, 0, 0, 0.15);
+    /*-webkit-text-stroke: 0.7px black;*/
+}
+
+span {
+    font-size: 16px;
+}
+
+select {
+    padding: 4px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.body-back {
+    z-index: 2;
+    text-align: center;
+    color:;
+    #9e0804
+}
+
+.card-title {
+    font-family: 'Bradley Hand', 'cursive';
+    letter-spacing: 2px;
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+.card-subtitle {
+    font-size: 17px;
+}
+
+.card-title, p {
+    /*text-shadow: 0.4px 0.4px 0px black;*/
+    /*font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;*/
+    /*text-shadow: 1px 1px 0px #696969, 1px 1px 3px grey;*/
+    letter-spacing: 1px;
+}
+
+.img-user {
+    height: 150px;
+    width: 150px;
+    border: 3px solid white;
+}
+
+.btn {
+    background-image: linear-gradient(to bottom right, rgb(1, 105, 105), rgb(7, 163, 163));
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+    margin-top: 5px;
+    box-shadow: 0 1px 4px grey, 0 1px 2px rgba(1, 105, 105,0.24);
+}
+
+hr {
+    border: .5px solid black;
+}
+
+.short {
+    width: 50%;
+}
+
+p {
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+}
+
+.col-3 {
+    /*background-color: #c8c8c8;*/
+    /*background-image: url('https://images.assetsdelivery.com/compings_v2/wklzzz/wklzzz1503/wklzzz150300032.jpg');*/
+    background-image: radial-gradient(circle, #e8f4ee, #e7f1ee, #e6efed, #e6eceb, #e6e9e9);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(1, 105, 105);
+}
+
+.filter strong {
+    font-size: 18px;
+}
+
+.filter, .apply {
+    margin: 20px auto;
+}
+
+.apply .btn {
+    padding: .2rem .5rem;
+    font-size: 20px;
+    border-color: #d0cccc;
+    height: 40px;
+    width: 100%;
+    text-shadow: none;
+}
+
+.gender, .mentor {
+    display: none;
+}
