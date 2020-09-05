@@ -45,10 +45,10 @@
 						<li class="postitem1">
 						<div class="container compose_post">
 							<h5 class="authortext"> <%= post.author.username %></h5>
-							<p id="posthead"><%=post.created%></p>
-						</div>
+							<p id="posttitle"><%=post.title%></p>
+							<!-- <p id="posthead"><%=post.created%></p> -->
+						</div>					
 						
-						<p id="posttitle"><%=post.title%></p>
 						<p>
 							<div id="newpost">
 							<div class="container imgAndDescription">
@@ -58,10 +58,10 @@
 							<div class="posttext">
 								<%=post.postcontent.substring(0, 200) + " .."%>
 							</div>
-							</div>
-							<button class="btn btn-outline-info float-right">
-								<a href="/post/<%=post._id%>" id="readtext">Continue Reading</a>
+							<button class="btn btn-outline-info float-right" id="continue_reading">
+ 								<a href="/post/<%=post._id%>" id="readtext">Continue Reading</a>
 							</button>
+							</div>						
 							
 							<%i++%>
 							</div>
@@ -85,9 +85,9 @@
 						<li class="postitem1">
 							<div class="container compose_post">
 								<h5 class="authortext "> <%= post.author.username %></h5>
-								<p id="posthead"><%=post.created%></p>
-							</div>
-						<p id="posttitle"><%=post.title%></p>
+								<!-- <p id="posthead"><%=post.created%></p> -->
+								<p id="posttitle"><%=post.title%></p>
+							</div>						
 						<p>
 							<div id="newpost">
 							<div class="container imgAndDescription">
@@ -97,10 +97,10 @@
 							<div class="posttext">
 								<%=post.postcontent.substring(0, 200) + " .."%>
 							</div>
-							</div>
-							<button class="btn btn-outline-info float-right">
+							<button class="btn btn-outline-info float-right"  id="continue_reading">
 								<a href="/post/<%=post._id%>" id="readtext">Continue Reading</a>
-							</button>					
+							</button>
+							</div>											
 							
 							<%i++%>
 							</div>
