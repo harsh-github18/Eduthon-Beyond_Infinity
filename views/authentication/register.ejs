@@ -10,14 +10,14 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    
-  <%- include("../navbar") %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">    
+    <%- include("../navbar") %>
+  </nav>
     <div class="bg-image"></div>
     <div class="bg-text">
       <br><br>
-    <h3><B>REGISTER</B></h3>    
-    <form action="/register" method="POST">
+      <h3><B>REGISTER</B></h3>  
+      <form action="/register" method="POST">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="selfbd col-md-8 p-3 bg-white">
@@ -33,39 +33,63 @@
                         </div>
 						<div class="form-group col-md-12">
 							<p>Select Skills:<p>
-                            <input type="checkbox" id="webd" name="webd" value="Web Development">
-							<label for="webd"> Web Development</label>
-							<input type="checkbox" id="android" name="android" value="Android">
-							<label for="android"> Android</label>
-							<input type="checkbox" id="ios" name="ios" value="IOS">
-							<label for="ios"> IOS</label>
-							<input type="checkbox" id="ar" name="ar" value="AR/VR">
-							<label for="ar"> AR/VR</label>
-							<input type="checkbox" id="ml" name="ml" value="Machine Learning">
-							<label for="ml"> Machine Learning</label>
-							<input type="checkbox" id="ai" name="ai" value="Artificial Intelligence">
-							<label for="ai"> Artificial Intelligence</label>
-							<input type="checkbox" id="ui" name="ui" value="UI/UX">
-							<label for="ui"> UI/UX</label>
-							<input type="checkbox" id="cp" name="cp" value="Competitive Programming">
-							<label for="cp"> Competitive Programming</label>
-                        </div>
-						<div class="form-group col-md-2">
-							<label>Willing to Mentor?</label>
-                            <select name="mentor" class="form-control" required>
-                              <option value="yes" disabled selected>Yes</option>
-                              <option value="no">No<option>
-                            </select>
-                        </div>
-                        <button type="submit" class="gradient-button gradient-button-1" >REGISTER</button>                  
+                <div>
+                  <span class="skill">
+                    <input type="checkbox" id="webd" name="webd" value="Web Development">
+                    <label for="webd"> Web Development</label>
+                  </span>
+                  <span class="skill">
+                    <input type="checkbox" id="android" name="android" value="Android">
+                    <label for="android"> Android</label>
+                  </span>
+                  <span class="skill">
+                    <input type="checkbox" id="ios" name="ios" value="IOS">
+                    <label for="ios"> IOS</label>
+                  </span>               
                 </div>
+                <div>
+                  <span class="skill">
+                    <input type="checkbox" id="ar" name="ar" value="AR/VR">
+                    <label for="ar"> AR/VR</label>
+                  </span>
+                  <span class="skill">
+                    <input type="checkbox" id="ml" name="ml" value="Machine Learning">
+                    <label for="ml"> Machine Learning</label>
+                  </span>
+                  <span class="skill">
+                    <input type="checkbox" id="ai" name="ai" value="Artificial Intelligence">
+                    <label for="ai"> Artificial Intelligence</label>
+                  </span>                  
+                </div>  
+                <div>
+                  <span class="skill">
+                    <input type="checkbox" id="ui" name="ui" value="UI/UX">
+                    <label for="ui"> UI/UX</label>
+                  </span>
+                  <span class="skill">
+                    <input type="checkbox" id="cp" name="cp" value="Competitive Programming">
+                    <label for="cp"> Competitive Programming</label>
+                  </span>                  
+                </div>			
+            </div>
+						<div class="mentorCheck">
+							<label>Willing to Mentor?</label>
+                <select name="mentor" class="form-control" required>
+                  <option value="yes" disabled selected>Yes</option>
+                  <option value="no">No<option>
+                </select>
+            </div>
+            <div class="mentorCheck">
+              <button type="submit" class="gradient-button gradient-button-1" style="justify-content: center;">Register</button>
+            </div>                                          
             </div>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
+    </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</body>
 
-</html>
+    </body>
+    </html>
