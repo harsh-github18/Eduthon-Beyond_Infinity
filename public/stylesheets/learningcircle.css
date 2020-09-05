@@ -1,0 +1,32 @@
+body{
+    margin-top: 60px !important;
+}
+
+#heading{
+    font-size: 40px;
+    font-weight: 500;
+    /* color: #396971; */
+    color: rgb(1, 105, 105);
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+}
+
+#subheading{
+    font-size: 20px;
+    font-weight: 300;
+    /* color: #396971; */
+    color: gray;
+    /* text-shadow: 4px 4px rgba(0, 0, 0, 0.15); */
+    display: flex;
+    justify-content: center;
+}
+
+#flex1{
+    margin: auto;
+    width: 70%;
+}
+
+.item2{
+    margin: 10px;
+}
