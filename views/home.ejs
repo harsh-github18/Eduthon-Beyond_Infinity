@@ -4,15 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LearnTEZZ</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <title>LearnTEZZ</title>
 </head>
-<body style="margin-top: 100px;">
+<body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-	<%- include("navbar") %>
-	<h1>HOME</h1>
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <div id="mySidebar" class="sidebar">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <h3 style="color:black; padding-left:20px">Welcome!</h3>
+          <a href="#collegeh"><img src="images/collegesGos.png" height="30" alt="">Our Mentors</a>
+          <a href="#blank"><img src="images/circular.png" height="30" alt=""> Posts</a>
+          <a href="#blank"><img src="images/notice.png" height="30" alt=""> Events</a>
+          <a href="#blank"><img src="images/wallFame.png" height="30" alt=""> Reviews</a>
+      </div>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item" id="main">
+        <span id="main">
+          <button class="openbtn" onclick="openNav()">&#9776;</button> 
+              </span>
+          </li>
+        </ul>
+    <%- include("navbar") %>
+    <div class="container" id="intro"> 
+      Be the Community, for the Community!
+    </div>
+
+    <div id="carousel1">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block" src="images/img1.jpg" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+              <span class="car_caption rounded">Indulge in Collaborative Learning</span>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block" src="images/img20.jpg" alt="Second slide">
+            <div class="carousel-caption d-none d-md-block">
+              <span class="car_caption rounded">Learn Cutting-edge Technologies</span>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block" src="images/img3.jpeg" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
+              <span class="car_caption rounded">Learn. Share. Connect.</span>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+    <h1 class="text-center Colleges" id="collegeh">Meet our Top Mentors</h1>
+    <div id="flex2">
+        <div class="collegelist rounded" id="govt">
+          <h4 class="text-center cardheading">Work at Companies</h4>
+          <button type="button" class="btn btn-outline-light college">Microsoft</button>
+          <button type="button" class="btn btn-outline-light college">Google</button>
+          <button type="button" class="btn btn-outline-light college">IBM</button>
+          <button type="button" class="btn btn-outline-light college">Adobe</button>
+          <button type="button" class="btn btn-outline-light college">LinkedIn</button>
+          <button type="button" class="btn btn-outline-light college">Amazon</button>
+          <button type="button" class="btn btn-outline-light college">And many more!</button>
+        </div>
+        <div class="collegelist rounded"> 
+          <h4 class="text-center cardheading">Top Skills</h4>
+          <button type="button" class="btn btn-outline-light college">Machine Learning</button>
+          <button type="button" class="btn btn-outline-light college">Web Development</button>
+          <button type="button" class="btn btn-outline-light college">Android Development</button>
+          <button type="button" class="btn btn-outline-light college">Competitive Programming</button>
+          <button type="button" class="btn btn-outline-light college">UI/UX</button>
+          <button type="button" class="btn btn-outline-light college">AR/VR</button>
+          <button type="button" class="btn btn-outline-light college">See More</button>
+        </div>
+        <div class="item list-group rounded border border-secondary" id="item6">
+          <video height="450" playsinline autoplay muted loop>
+            <source src="/images/map.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div id="blank">
+
+      </div>
+      
+      <div id="walloffameheader">
+        <div><h1 class="text-center Colleges">Reviews</h1></div>
+        <div><h1 class="text-center Colleges">Events and Posts</h1></div>
+      </div>
+    <div id="flex2">
+      <div class="item list-group rounded border border-secondary" id="item7"></div>
+        <div class="collegelist rounded">
+          <h4 class="text-center cardheading">Events</h4>          
+          <button type="button" class="btn btn-outline-light college">Webinar on DS Algo</button>
+          <button type="button" class="btn btn-outline-light college">Git Session</button>
+          <button type="button" class="btn btn-outline-light college">Interview Preparation Webinar</button>
+          <button type="button" class="btn btn-outline-light college">Open Source Seminar</button>
+          <button type="button" class="btn btn-outline-light college">Research Paper: 101</button>
+          <a href="/post" type="button" class="btn btn-outline-light college">See All Posts</a>
+        </div>
+        <div class="collegelist rounded">
+          <h4 class="text-center cardheading">Posts</h4>
+          <button type="button" class="btn btn-outline-light college">Alumni Meet BITS Goa</button>
+          <button type="button" class="btn btn-outline-light college">International Conference at Goa</button>
+          <button type="button" class="btn btn-outline-light college">Alumni Meet NIT Goa</button>
+          <button type="button" class="btn btn-outline-light college">Reseach Paper Presentation IIT Goa</button>
+          <button type="button" class="btn btn-outline-light college">Meet and Greet NIT Goa</button>
+          <a href="/post" type="button" class="btn btn-outline-light college">See All Events</a>
+        </div>
+      </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="/scripts/slimbar.js"></script>
+
 </body>
 </html>
